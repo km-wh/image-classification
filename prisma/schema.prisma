@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Log {
+  id Int @id @default(autoincrement())
+  image_path String? @db.VarChar(255)
+  success Boolean
+  message String? @db.VarChar(255)
+  class Int?
+  confidence Decimal? @db.Decimal(5,4)
+  request_timestamp DateTime? @db.DateTime(6)
+  response_timestamp DateTime? @db.DateTime(6)
+
+  @@map("ai_analysis_log")
+}
