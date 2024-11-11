@@ -1,9 +1,9 @@
-### .env file example
+### Create a file called .env in the root of your project
 
 ```shell
 # 画像解析AIのAPI
-# API_AI_URL="http://example.com/"
-API_AI_URL="http://localhost:8000/api"
+# API_AI_URL="http://localhost:8000/api"
+API_AI_URL="http://example.com/"
 
 # API送信時のタイムアウト時間（ミリ秒）
 API_TIMEOUT=10000
@@ -17,10 +17,12 @@ DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE"
 ```
 
 ---
+### Execute the following command to create the table.
 
-
+```bash
 npx prisma migrate dev --name init
-
+```
+  
 ---
   
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
