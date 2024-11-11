@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { analyzeImage } from "../../../actions/analysis";
 import { registerLog } from "../../../actions/log";
+import { GetNow } from "../../../utils/dateUtils";
 
 /**
  * 画像分析処理
@@ -13,9 +14,9 @@ export const POST = async (req, _res) => {
   let data = {};
 
   // 画像分析APIへの送信
-  const request_timestamp = new Date();
+  const request_timestamp = GetNow();
   const response = await analyzeImage(image_path);
-  const response_timestamp = new Date();
+  const response_timestamp = GetNow();
 
   if (response?.status === 200) {
     // ステータスコード:200の場合
